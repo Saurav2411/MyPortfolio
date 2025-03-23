@@ -20,7 +20,7 @@ export const Projects = () => {
                 A modern portfolio website showcasing my skills, projects, and contact information, built with React and Tailwind CSS.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
-                {["React", "Tailwind CSS", "Vite", "Framer Motion"].map((tech, key) => (
+                {["React", "Tailwind CSS", "Vite", "Email JS"].map((tech, key) => (
                   <span key={key} className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm transition-all hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)]">
                     {tech}
                   </span>
@@ -28,7 +28,7 @@ export const Projects = () => {
               </div>
               <div className="flex justify-between items-center">
                 <a href="https://my-portfolio-rouge-kappa-50.vercel.app" className="text-blue-400 hover:text-blue-300 transition-colors my-4">View Project →</a>
-                <a href="https://github.com/Saurav2411/portfolio" className="text-gray-400 hover:text-gray-300 transition-colors my-4">GitHub</a>
+                <a href="https://github.com/Saurav2411/MyPortfolio" className="text-gray-400 hover:text-gray-300 transition-colors my-4">GitHub</a>
               </div>
             </div>
 
