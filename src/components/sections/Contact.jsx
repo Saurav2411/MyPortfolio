@@ -8,22 +8,36 @@ export const Contact = () => {
     email: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
 
     emailjs
-      .sendForm(
+      .send(
         import.meta.env.VITE_SERVICE_ID,
         import.meta.env.VITE_TEMPLATE_ID,
-        e.target,
+        templateParams,
         import.meta.env.VITE_PUBLIC_KEY
       )
-      .then((result) => {
-        alert("Message Sent!");
+      .then(() => {
+        setSuccess("✅ Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
       })
-      .catch(() => alert("Oops! Something went wrong. Please try again."));
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        setSuccess("❌ Oops! Something went wrong. Please try again.");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -34,9 +48,13 @@ export const Contact = () => {
       <RevealOnScroll>
         <div className="px-4 w-full min-w-[300px] md:w-[500px] sm:w-2/3 p-6">
           <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
-            {" "}
             Get In Touch
           </h2>
+          {success && (
+            <p className={`text-center text-lg ${success.includes("Oops") ? "text-red-500" : "text-green-500"}`}>
+              {success}
+            </p>
+          )}
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="relative">
               <input
@@ -86,8 +104,9 @@ export const Contact = () => {
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+              disabled={loading}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
