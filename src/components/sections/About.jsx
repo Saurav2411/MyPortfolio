@@ -37,7 +37,7 @@ export const About = () => {
             <div className="flex justify-center mt-6 space-x-4">
             
               <a
-                href="https://drive.google.com/file/d/1vGC8IIVjW_oM-8xS16Mx-r_vq6tkWkWV/view"
+                href="https://drive.google.com/file/d/1S7Hnn8MNHL13gsKuJl3f36raC7hxpxr3/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-500 text-white py-3 px-6 rounded-lg font-medium transition hover:-translate-y-0.5 hover:shadow-lg"
@@ -47,7 +47,7 @@ export const About = () => {
 
               
               <a
-                href="https://drive.google.com/uc?export=download&id=1vGC8IIVjW_oM-8xS16Mx-r_vq6tkWkWV"
+                href="https://drive.google.com/file/d/1S7Hnn8MNHL13gsKuJl3f36raC7hxpxr3/view?usp=sharing"
                 download="Saurav_Chauhan_Resume.pdf"
                 className="bg-gray-800 text-white py-1 px-1 rounded-lg font-medium flex items-center space-x-2 transition hover:-translate-y-0.5 hover:shadow-lg"
               >
